@@ -1,0 +1,88 @@
+
+    {% extends "Base.html" %}
+    {% block content %}
+    {% load static %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Booking Open</h1>
+      <p class="lead">A streamlined solution for managing and scheduling appointments, providing users with a user-friendly interface to book, view, and manage appointments effortlessly, while offering administrators comprehensive tools for organizing and tracking appointments by type and location.</p>
+    </div>
+
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Appointment</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">Feature</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Add</li>
+              <li>View</li>
+              <li>Edit</li>
+            </ul>
+            <a href="{% url 'AppointmentApp:ViewAppointmentList' %}" class="btn btn-lg btn-block btn-primary">Visit</a>
+
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Customer</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">Feature</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Add</li>
+              <li>View</li>
+              <li>Edit</li>
+            </ul>
+            <a href="{% url 'HomeApp:ViewCustomerList' %}" class="btn btn-lg btn-block btn-primary">Visit</a>
+
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Report</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">Feature</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Add</li>
+              <li>View</li>
+              <li>Edit</li>
+            </ul>
+            <a href="{% url 'HomeApp:ViewReport' %}" class="btn btn-lg btn-block btn-primary">Visit</a>
+
+          </div>
+        </div>
+      </div>
+
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+            <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Appointment</a></li>
+              <li><a class="text-muted" href="#">Customers</a></li>
+              <li><a class="text-muted" href="#">Reports</a></li>
+
+            </ul>
+          </div>
+
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Team</a></li>
+              <li><a class="text-muted" href="#">Locations</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    {% endblock content %}

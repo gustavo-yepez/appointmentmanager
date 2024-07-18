@@ -1,0 +1,87 @@
+{% extends "Base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Appointments</h2>
+                    <form method="GET" class="form-inline">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filter" id="date_filter" value="date" checked>
+                            <label class="form-check-label" for="date_filter">Date</label>
+                        </div>
+                        <label for="date" class="mr-2">Filter by Date:</label>
+                        <input type="date" id="date" name="date" class="form-control mr-2">
+                        <button type="submit" class="btn btn-primary mr-2">Filter</button>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filter" id="all" value="all">
+                            <label class="form-check-label" for="all">All</label>
+                        </div>
+
+
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filter" id="current_month" value="current_month">
+                            <label class="form-check-label" for="current_month">Current Month</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="filter" id="current_week" value="current_week">
+                            <label class="form-check-label" for="current_week">Current Week</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary ml-2">Apply</button>
+                    </form>
+
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Customer</th>
+                                <th scope="col">Booked By</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Contact</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">URL</th>
+                                <th scope="col">Start Time</th>
+                                <th scope="col">End Time</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for appointment in appointments %}
+                            <tr>
+                                <th scope="row">{{ appointment.id }}</th>
+                                <td>{{ appointment.customer.name }}</td>
+                                <td>{{ appointment.booked_by.username }}</td>
+                                <td>{{ appointment.title }}</td>
+                                <td>{{ appointment.description }}</td>
+                                <td>{{ appointment.location }}</td>
+                                <td>{{ appointment.contact }}</td>
+                                <td>{{ appointment.type }}</td>
+                                <td>{{ appointment.url }}</td>
+                                <td>{{ appointment.start_time }}</td>
+                                <td>{{ appointment.end_time }}</td>
+                                <td>
+                                    <a href="{% url 'AppointmentApp:ViewAppointmentUpdate' appointment.id %}"
+                                       class="btn btn-primary btn-sm">Update</a>
+                                       <a href="{% url 'AppointmentApp:ViewAppointmentDelete' appointment.id %}"
+                                       class="btn btn-primary btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
